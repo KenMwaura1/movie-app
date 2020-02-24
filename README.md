@@ -1,4 +1,5 @@
 # movie-app
+Simple frontend using the OMDB Api and Vue 
 
 ## Project setup
 ```

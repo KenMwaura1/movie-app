@@ -2,11 +2,9 @@ import axios from 'axios'
 
 export default {
 
-  fetchMovieCollection (name) {
-    return axios.get('&s=' + name)
-      .then(response => {
-        return response.data
-      })
+  async fetchMovieCollection (name) {
+    const response = await axios.get('&s=' + name)
+    return response.data
   },
 
   fetchSingleMovie (id) {

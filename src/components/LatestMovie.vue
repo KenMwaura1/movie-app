@@ -1,47 +1,38 @@
 <template>
-
   <v-container v-if="loading">
     <div class="text-xs-center">
       <v-progress-circular
         indeterminate
         :size="150"
         :width="8"
-        color="green">
-      </v-progress-circular>
+        color="green"
+      ></v-progress-circular>
     </div>
   </v-container>
 
   <v-container v-else grid-list-xl>
     <v-layout wrap>
-      <v-flex xs4
-        v-for="(item, index) in wholeResponse"
-        :key="index"
-        mb-2>
+      <v-flex xs4 v-for="(item, index) in wholeResponse" :key="index" mb-2>
         <v-card>
-          <v-img
-            :src="item.Poster"
-            aspect-ratio="1"
-          ></v-img>
+          <v-img :src="item.Poster" aspect-ratio="1"></v-img>
 
           <v-card-title primary-title>
             <div>
-              <h2>{{item.Title}}</h2>
-              <div>Year: {{item.Year}}</div>
-              <div>Type: {{item.Type}}</div>
-              <div>IMDB-id: {{item.imdbID}}</div>
+              <h2>{{ item.Title }}</h2>
+              <div>Year: {{ item.Year }}</div>
+              <div>Type: {{ item.Type }}</div>
+              <div>IMDB-id: {{ item.imdbID }}</div>
             </div>
           </v-card-title>
 
           <v-card-actions class="justify-center">
-            <v-btn flat
-              color="green"
-              @click="singleMovie(item.imdbID)"
-              >View</v-btn>
+            <v-btn flat color="green" @click="singleMovie(item.imdbID)"
+              >View</v-btn
+            >
           </v-card-actions>
-
         </v-card>
       </v-flex>
-  </v-layout>
+    </v-layout>
   </v-container>
 </template>
 
@@ -56,7 +47,8 @@ export default {
     }
   },
   mounted () {
-    movieApi.fetchMovieCollection('indiana')
+    movieApi
+      .fetchMovieCollection('anna')
       .then(response => {
         this.wholeResponse = response.Search
         this.loading = false
@@ -74,6 +66,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  .v-progress-circular
-    margin: 1rem
+.v-progress-circular {
+  margin: 1rem;
+}
 </style>

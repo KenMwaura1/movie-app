@@ -22,7 +22,7 @@ jobs:
         #scope: # optional
     - name: install yarn
       run: |
-        apt-get install yarn,
+        sudo apt-get install yarn,
         echo yarn installed in your  project.
     - name: install the required dependecies
       run: |

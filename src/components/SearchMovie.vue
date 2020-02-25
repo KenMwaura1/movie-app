@@ -5,9 +5,15 @@
     </div>
   </v-container>
 
+  <v-container v-else-if="noData">
+    <div class="text-xs-center">
+      <h2>No Movie in API with {{this.name}}</h2>
+    </div>
+  </v-container>
+
   <v-container v-else grid-list-xl>
     <v-layout wrap>
-      <v-flex xs4 v-for="(item, index) in wholeResponse" :key="index" mb-2>
+      <v-flex xs4 v-for="(item, index) in movieResponse" :key="index" mb-2>
         <v-card>
           <v-img :src="item.Poster" aspect-ratio="1"></v-img>
 
@@ -32,26 +38,42 @@
 <script>
 import movieApi from "@/services/MovieApi";
 export default {
+  props: ["name"],
   data() {
     return {
-      wholeResponse: [],
-      loading: true
+      movieResponse: [],
+      loading: true,
+      noData: false
     };
-  },
-  mounted() {
-    movieApi
-      .fetchMovieCollection("indiana")
-      .then(response => {
-        this.wholeResponse = response.Search;
-        this.loading = false;
-      })
-      .catch(error => {
-        console.log(error);
-      });
   },
   methods: {
     singleMovie(id) {
       this.$router.push("/movie/" + id);
+    },
+    fetchResult(value) {
+      movieApi
+        .fetchMovieCollection(value)
+        .then(response => {
+          if (response.Response === "True") {
+            this.movieResponse = response.Search;
+            this.loading = false;
+            this.noData = false;
+          } else {
+            this.noData = true;
+            this.loading = false;
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  },
+  mounted() {
+    this.fetchResult(this.name);
+  },
+  watch: {
+    name(value) {
+      this.fetchResult(value);
     }
   }
 };

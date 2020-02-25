@@ -20,15 +20,16 @@ jobs:
         #registry-url: # optional
         # Optional scope for authenticating against scoped registries
         #scope: # optional
-    - name: install yarn
-      run: |
-        sudo apt-get install yarn,
-        echo yarn installed in your  project.
-    - name: install the required dependecies
-      run: |
-        yarn install
-    - name: serve the build 
-      run: |
-        yarn serve,
-        echo project running.
+    - name: Install
+      uses: CultureHQ/actions-yarn@master
+      with:
+        args: install
+    - name: Lint
+      uses: CultureHQ/actions-yarn@master
+      with:
+        args: lint
+    - name: Serve
+      uses: CultureHQ/actions-yarn@master
+      with:
+        args: serve 
         

@@ -32,7 +32,7 @@ jobs:
       uses: CultureHQ/actions-yarn@master
       with:
         args: serve
-   - name: Build
+    - name: Build
       uses: CultureHQ/actions-yarn@master
       with:
         args: build

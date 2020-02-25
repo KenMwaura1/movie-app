@@ -31,5 +31,9 @@ jobs:
     - name: Serve
       uses: CultureHQ/actions-yarn@master
       with:
-        args: serve 
+        args: serve
+   - name: Build
+      uses: CultureHQ/actions-yarn@master
+      with:
+        args: build
         

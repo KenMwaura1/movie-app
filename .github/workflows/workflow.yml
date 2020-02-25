@@ -32,6 +32,4 @@ jobs:
       uses: CultureHQ/actions-yarn@master
       with:
         args: build
-    - name: Finish CI
-      run: ctrl+C
         

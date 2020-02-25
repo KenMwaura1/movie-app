@@ -1,5 +1,7 @@
 # movie-app
 
+![.github/workflows/workflow.yml](https://github.com/KenMwaura1/movie-app/workflows/.github/workflows/workflow.yml/badge.svg?branch=master)
+
 Simple frontend using the OMDB Api and Vue
 
 ## Project setup

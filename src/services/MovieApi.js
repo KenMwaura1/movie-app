@@ -7,10 +7,8 @@ export default {
     return response.data
   },
 
-  fetchSingleMovie (id) {
-    return axios.get('&i=' + id)
-      .then(response => {
-        return response.data
-      })
+  async fetchSingleMovie (id) {
+    const response = await axios.get('&i=' + id)
+    return response.data
   }
 }

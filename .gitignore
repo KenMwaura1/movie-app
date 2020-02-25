@@ -6,6 +6,7 @@ node_modules
 .env.local
 .env.*.local
 yarn.lock
+vue.config.js
 
 # Log files
 npm-debug.log*

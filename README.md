@@ -1,4 +1,4 @@
-# movie-app
+# Movie-app
 
 ![CI](https://github.com/KenMwaura1/movie-app/workflows/CI/badge.svg?branch=master)
 
